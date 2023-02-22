@@ -11,14 +11,14 @@ const Task = ({ taskObj, onComplete }) => {
   console.log("difference", differResult);
 
   let sure = "";
-  if (differResult < 0) {
+  if (differResult > 0) {
     sure = "sonra";
-  } else if (differResult > 0) {
+  } else if (differResult < 0) {
     sure = "önce";
   }
 
   let yeniStil = "";
-  if (differResult <= 3) {
+  if (differResult <= 3 && differResult >= 0) {
     yeniStil = "bg-buse";
   }
 
@@ -32,7 +32,7 @@ const Task = ({ taskObj, onComplete }) => {
       <div>
         {taskObj.people.map((p) => (
           <span
-            className="pill text-xl font-semibold border border-lime-700 bg-lime-100"
+            className="pill text-xl font-semibold border-lime-700 bg-lime-100"
             key={p}>
             {p}
           </span>
